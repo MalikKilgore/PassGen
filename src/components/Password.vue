@@ -78,31 +78,45 @@ export default {
       password: "",
       length: 14,
       capital: false,
-      lowercase: false,
+      lowercase: true,
       number: false,
-      special: false,
+      special: true,
     };
   },
   methods: {
     generatePassword() {
-      const result = "";
+      let finalResult = "";
       const capitalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
       const lowercaseChars = "abcdefghijklmnopqrstuvwxyz"
       const numbers = "0123456789"
       const specialChars = "!@#$%^&*"
-      const charactersLength = this.length
+      let allCharacters = []
+
+      if (this.capital == true){
+        allCharacters.push(capitalChars)
+      }
+      if (this.lowercase == true){
+        allCharacters.push(lowercaseChars)
+      }
+      if (this.number == true){
+        allCharacters.push(numbers)
+      }
+      if (this.special == true){
+        allCharacters.push(specialChars)
+      }
+
+      allCharacters = allCharacters.join("")
+      let charactersLength = allCharacters.length
 
       for (var i = 0; i < this.length; i++) {
-        result += characters.charAt(
+        finalResult += allCharacters.charAt(
           Math.floor(Math.random() * charactersLength)
         );
       }
-      return this.password = result;
+      return this.password = finalResult;
     },
     async copyToClipboard() {
-      if (!body || !navigator.clipboard) return;
-
-      console.log("Clipboard API available");
+      if (!navigator.clipboard) return;
       await navigator.clipboard.writeText(this.password);
     },
   },
