@@ -6,6 +6,7 @@
       border: black solid 5px;
       max-width: 55%;
     "
+    id="passRoot"
   >
     <!-- Cover -->
     <div style="max-height: fit-content; width: 100%; border-bottom: 2px solid black">
@@ -24,7 +25,7 @@
     <!-- Content -->
     <div style="/* Take available height */ flex: 1">
       <ul>
-        <li >
+        <li>
           <label for="passLength">Length: {{ length }}</label>
           <input
             type="range"
@@ -103,7 +104,7 @@ export default {
       const capitalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
       const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
       const numbers = "0123456789";
-      const specialChars = "!@#$%^&*";
+      const specialChars = "!@#$%^&*[]{}+=-_><?";
       let allCharacters = [];
 
       if (this.capital == true) {
@@ -165,6 +166,10 @@ img {
   max-width: 2rem;
   max-height: 2rem;
 }
+#passRoot{
+  background-color: #ffffff;
+}
+
 .angled-gradient-button {
   max-width: 50%;
   max-height: 8rem;

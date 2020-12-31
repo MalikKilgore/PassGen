@@ -19,7 +19,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-  margin-top: 60px;
-  margin-left: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  widows: 100vw;
+  overflow: hidden;
+  background-color: #8d8d8d;
 }
 </style>
